@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'sae18g=1902-2l@i(a&%x40%h9cl=qma9ged4a*&%s%y41uen&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 # ALLOWED_HOSTS = ['127.0.0.1','localhost','.m1ro.store']
 
 
