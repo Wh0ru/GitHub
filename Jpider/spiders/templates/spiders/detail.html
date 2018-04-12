@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="author-details">
+    <h3 class="author-title">{{ post.author.name }}</h3>
+    <p><strong>Born:</strong> <span class="author-born-date">{{ post.author.born_date }}</span>
+        <span class="author-born-location">{{ post.author.born_location }}</span> </p>
+        <p><strong>Description:</strong></p>
+    </div>
+
+    <div class="entry-content clearfix">
+        {{ post.body|safe }}
+    </div>
+    <hr>
+    <br>
+    <br>
+
+    <section class="comment-area" id="comment-area">
+        <div class="row">
+            <article class="col-xs-12">
+                <h3>Sharing you comment:</h3>
+                <form action="/spiders/post/{{ post.id }}/comment/" method="post" >
+                    {% csrf_token %}
+                    {{ commentform.as_p }}
+                    <input class="btn btn-default" type="submit" value="Submit"/>
+                </form>
+            </article>
+        </div>
+        <div class="comment-list-panel">
+            <h3>评论列表</h3>
+            <hr>
+            <ul class="comment-list list-unstyled">
+                {% for comment in comments %}
+                    <li class="comment-item">
+                        <span class="nickname">{{ comment.user }}</span>
+                        <time class="submit-date" datetime="2018-04-12T23:15:57+00:00">{{ comment.pub_date | date:"j M" }}</time>
+                        <div class="text">
+                            {{ comment.content }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+{% endblock main %}
