@@ -3,7 +3,7 @@ import MySQLdb
 class DataOutput(object):
     def __init__(self):
         try:
-            self.con=MySQLdb.connect(host='localhost',user='root',passwd='123456',port=3306,db='douban',charset='utf8')
+            self.con=MySQLdb.connect(host='localhost',user='***',passwd='****',port=3306,db='****',charset='utf8')
             self.cur=self.con.cursor()
             print("Connect to db successfully!")
         except:
